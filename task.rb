@@ -38,16 +38,11 @@ def get_order
       puts price
     end
 
-if order[:count] > 3
-  discount = 0.15
-else
-  discount = 0
-end
+
 
     all_price 
-    puts "введите сумму заказа"
-    sum_order = gets.to_i
-    if sum_order > 10000
+    price  = gets.to_i
+    if price  > 10000
         puts "сумма заказа превышает лимит"
     else
         puts "сумма заказа не превышает лимит"
