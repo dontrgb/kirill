@@ -40,6 +40,13 @@ def get_order
 
     all_price 
     
+    def discount
+      discount = 0
+      if order[:count] > 3
+        discount += (order[:cost] * order[:count]) * 0.75
+      end
+    end
+
     def limit_price
     price  = gets.to_i
     if price  > 10000
