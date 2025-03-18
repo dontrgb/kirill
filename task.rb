@@ -38,8 +38,6 @@ def get_order
       puts price
     end
 
-
-
     all_price 
     price  = gets.to_i
     if price  > 10000
