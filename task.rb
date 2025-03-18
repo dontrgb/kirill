@@ -39,9 +39,14 @@ def get_order
     end
 
     all_price 
+    
+    def limit_price
     price  = gets.to_i
     if price  > 10000
         puts "сумма заказа превышает лимит"
     else
         puts "сумма заказа не превышает лимит"
     end
+    end
+
+    limit_price
