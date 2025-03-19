@@ -13,47 +13,55 @@
 =end
 
 def get_order
-    orders = []
-    i = 1
-    puts "введите кол-во заказов"
-      count_orders = gets.to_i
-      count_orders.times do
-      puts "введите название блюда № #{i}"
-      name_dish = gets.to_s.strip
-      puts "введите цену блюда"
-      cost_dish = gets.to_i
-      puts "введите кол-во блюд"
-      count_dish = gets.to_i
-      i+=1 
-      orders << {name: name_dish, cost: cost_dish, count: count_dish}
-    end
-     orders
+  orders = []
+  i = 1
+
+  puts "введите кол-во заказов"
+  count_orders = gets.to_i
+
+  count_orders.times do 
+    puts "введите название блюда № #{i}"
+    name_dish = gets.to_s.strip
+    puts "введите цену блюда"
+    cost_dish = gets.to_i
+    puts "введите кол-во блюд"
+    count_dish = gets.to_i
+    i+=1 
+    orders << {name: name_dish, cost: cost_dish, count: count_dish}
   end
 
-    def all_price
-        price = 0
-      get_order.each do |order|
-        price += (order[:cost] * order[:count])
-      end
-      puts price
-    end
+  orders
+end
 
-    all_price 
+def all_price
+  price = 0
+
+  get_order.each do |order|
+    price += (order[:cost] * order[:count])
+  end
+
+  price
+end
+
+all_price 
     
-    def discount
-      discount = 0
-      if order[:count] > 3
-        discount += (order[:cost] * order[:count]) * 0.75
-      end
-    end
+def discount
+  discount = 0
 
-    def limit_price
-    price  = gets.to_i
-    if price  > 10000
-        puts "сумма заказа превышает лимит"
-    else
-        puts "сумма заказа не превышает лимит"
-    end
-    end
+  if order[:count] > 3
+    discount += (order[:cost] * order[:count]) * 0.75
+  end
 
-    limit_price
+  discount
+end
+
+def limit_price
+  price  = gets.to_i
+  if price  > 10000
+    puts "сумма заказа превышает лимит"
+  else
+    puts "сумма заказа не превышает лимит"
+  end
+end
+
+limit_price
