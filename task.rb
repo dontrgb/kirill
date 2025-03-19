@@ -37,22 +37,14 @@ def all_price
   price = 0
 
   get_order.each do |order|
-    price += (order[:cost] * order[:count])
+    if order[:count] > 3
+      price += (order[:cost] * order[:count]) * 0.75
+    else
+      price += (order[:cost] * order[:count])
+    end
   end
 
   price
-end
-
-all_price 
-    
-def discount
-  discount = 0
-
-  if order[:count] > 3
-    discount += (order[:cost] * order[:count]) * 0.75
-  end
-
-  discount
 end
 
 def limit_price
@@ -63,5 +55,3 @@ def limit_price
     puts "сумма заказа не превышает лимит"
   end
 end
-
-limit_price
