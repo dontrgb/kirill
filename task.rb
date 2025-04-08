@@ -38,7 +38,7 @@ def all_price
 
   get_order.each do |order|
     if order[:count] > 3
-      price += (order[:cost] * order[:count]) * 0.75
+      price += (order[:cost] * order[:count]) * 0.85
     else
       price += (order[:cost] * order[:count])
     end
@@ -46,3 +46,10 @@ def all_price
 
   price
 end
+
+  def most_expensive
+    dish = 0
+    if order[:cost] > dish[:cost]
+      dish = order
+    end
+  end
