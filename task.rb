@@ -47,9 +47,15 @@ def all_price
   price
 end
 
-  def most_expensive
-    dish = 0
-    if order[:cost] > dish[:cost]
-      dish = order
+def costly_dish
+  order = get_order
+  cost = 0
+  name = ''
+  order.each do |x|
+    if x[:cost] > cost
+      cost = x[:cost]
+      name = x[:name]
     end
   end
+  "самое дорогое блюдо в заказе: #{name}, цена блюда: #{cost}" 
+end  
