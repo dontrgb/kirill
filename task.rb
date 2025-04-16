@@ -59,3 +59,9 @@ def costly_dish
   end
   "самое дорогое блюдо в заказе: #{name}, цена блюда: #{cost}" 
 end  
+
+def limit
+  if all_price > 10000
+    "сумма заказа превышает лимит"
+  end
+end
