@@ -43,13 +43,23 @@ def all_price
       price += (order[:cost] * order[:count])
     end
   end
-
+  puts "введите лимит цены заказа"
+  limit = gets.to_i
+  if price > limit
+    "сумма заказа превышает лимит"
+  end
   price
 end
 
-  def most_expensive
-    dish = 0
-    if order[:cost] > dish[:cost]
-      dish = order
+def most_expensive
+  order = get_order
+  cost = 0
+  name = ''
+  order.each do |x|
+    if x[:cost] > cost
+      cost = x[:cost]
+      name = x[:name]
     end
   end
+  "самое дорогое блюдо в заказе: #{name}, цена блюда: #{cost}" 
+end  
