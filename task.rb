@@ -43,7 +43,7 @@ def all_price
       price += (order[:cost] * order[:count])
     end
   end
-  
+
   price
 end
 
