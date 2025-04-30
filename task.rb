@@ -63,6 +63,6 @@ class Order
   def limit
     if all_price > 10000
       "сумма заказа превышает лимит"
-  end
+    end
   end
 end
