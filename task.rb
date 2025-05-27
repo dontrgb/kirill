@@ -12,6 +12,10 @@
 
 =end
 class Order
+  def initialize
+    @order = order
+  end
+
   def get_order
     orders = []
     i = 1
