@@ -12,8 +12,9 @@
 
 =end
 class Order
-  def initialize
+  def initialize(order)
     @order = order
+    order = get_order
   end
 
   def get_order
