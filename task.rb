@@ -16,28 +16,6 @@ class Order
     @order = []
     get_order 
   end
-  
-  private
-
-  def get_order
-    i = 1
-
-    puts "введите кол-во заказов"
-    count_orders = gets.to_i
-
-    count_orders.times do 
-      puts "введите название блюда № #{i}"
-      name_dish = gets.to_s.strip
-      puts "введите цену блюда"
-      cost_dish = gets.to_i
-      puts "введите кол-во блюд"
-      count_dish = gets.to_i
-      i+=1 
-      @order << {name: name_dish, cost: cost_dish, count: count_dish}
-    end
-
-    @order
-  end
 
   def all_price
     price = 0
@@ -69,5 +47,27 @@ class Order
     if all_price > 10000
       "сумма заказа превышает лимит"
     end
+  end
+  
+  private
+
+  def get_order
+    i = 1
+
+    puts "введите кол-во заказов"
+    count_orders = gets.to_i
+
+    count_orders.times do 
+      puts "введите название блюда № #{i}"
+      name_dish = gets.to_s.strip
+      puts "введите цену блюда"
+      cost_dish = gets.to_i
+      puts "введите кол-во блюд"
+      count_dish = gets.to_i
+      i+=1 
+      @order << {name: name_dish, cost: cost_dish, count: count_dish}
+    end
+
+    @order
   end
 end
