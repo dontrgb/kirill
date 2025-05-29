@@ -12,13 +12,14 @@
 
 =end
 class Order
-  def initialize(order)
-    @order = order
-    order = get_order
+  def initialize
+    @order = []
+    get_order 
   end
+  
+  private
 
   def get_order
-    orders = []
     i = 1
 
     puts "введите кол-во заказов"
@@ -32,16 +33,16 @@ class Order
       puts "введите кол-во блюд"
       count_dish = gets.to_i
       i+=1 
-      orders << {name: name_dish, cost: cost_dish, count: count_dish}
+      @order << {name: name_dish, cost: cost_dish, count: count_dish}
     end
 
-    orders
+    @order
   end
 
   def all_price
     price = 0
 
-    get_order.each do |order|
+    @order.each do |order|
       if order[:count] > 3
         price += (order[:cost] * order[:count]) * 0.85
       else
@@ -53,10 +54,9 @@ class Order
   end
 
   def costly_dish
-   order = get_order
     cost = 0
     name = ''
-    order.each do |x|
+    @order.each do |x|
       if x[:cost] > cost
         cost = x[:cost]
         name = x[:name]
