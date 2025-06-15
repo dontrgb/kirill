@@ -40,8 +40,9 @@ class Order
         name = x[:name]
       end
     end
-    "самое дорогое блюдо в заказе: #{name}, цена блюда: #{cost}" 
+    { name: name, cost: cost }  
   end  
+
 
   def limit
     if all_price > 10000
