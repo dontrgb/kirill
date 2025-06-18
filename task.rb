@@ -45,7 +45,9 @@ class Order
 
 
   def limit
-    all_price > 10000
+    return true if all_price > 10000
+
+    false
   end
   
   private
