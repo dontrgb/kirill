@@ -72,5 +72,3 @@ class Order
     @order
   end
 end
-
-try
