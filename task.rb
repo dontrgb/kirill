@@ -13,7 +13,7 @@
 =end
 class Order
   def initialize(order = nil)
-    @order = []
+    @order = order
     get_order if order.nil? || order.empty?
   end
 
