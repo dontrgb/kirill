@@ -12,9 +12,9 @@
 
 =end
 class Order
-  def initialize
-    @order = []
-    get_order 
+  def initialize(order = nil)
+    @order = order
+    get_order if order.nil? || order.empty?
   end
 
   def all_price
