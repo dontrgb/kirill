@@ -17,25 +17,19 @@ RSpec.describe Order do
   end
 
   describe "#limit" do
-    it 'should return true if the total price of the order is less than 10000' do
-      order
+    it 'should return false if the total price of the order is less than 10000' do
+      expect(order.limit).to eq(false)
+    end
+
+    it 'should return true if the total price of the order is more than 10000' do
+      order = Order.new([{ name: 'huge set', cost: 11000, count: 1 }])
       expect(order.limit).to eq(true)
     end
   end
   
   describe "#costly_dish" do
     it 'should return the most expensive dish in the order with name and cost' do
-      order
       expect(order.costly_dish).to eq( { name: "Стейк", cost: 1500 })
     end
   end
-   
-  describe "#limit" do
-    it 'should return false if the total price of the order is more than 10000' do
-      order = Order.new1([{ name: 'huge set', cost: 11000, count: 1 }])
-      expect(order.limit).to eq(false)
-    end
-  end
-
 end
-
