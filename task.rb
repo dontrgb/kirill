@@ -66,11 +66,10 @@ class Order
       puts "введите кол-во блюд"
       count_dish = gets.to_i
       i+=1 
-      @order << {name: name_dish, cost: cost_dish, count: count_dish}
+      @order << Dish.new(name_dish, cost_dish, count_dish)
     end
 
     @order
   end
 end
-
 
