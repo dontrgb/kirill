@@ -1,19 +1,18 @@
 require_relative 'dish'
-dish = Dish.new
 
 class OrderCalculator
-    def initialize(order)
-        @dish = dish
+    def initialize(dishes)
+        @dishes = dishes
     end
 
     def all_price
         price = 0
     
-        @dish.each do |order|
-          if Dish.new[:count] > 3
-            price += (Dish.new[:cost] * Dish.new[:count]) * 0.85
+        @dishes.each do |dish|
+          if dish.count > 3
+            price += (dish.cost * dish.count) * 0.85
           else
-            price += (Dish.new[:cost] * Dish.new[:count])
+            price += (dish.cost * dish.count)
           end
         end
     
@@ -23,10 +22,10 @@ class OrderCalculator
       def costly_dish
         cost = 0
         name = ''
-        @dish.each do |x|
-          if x[:cost] > cost
-            cost = x[:cost]
-            name = x[:name]
+        @dishes.each do |dish|
+          if dish.cost > cost
+            cost = dish.cost
+            name = dish.name
           end
         end
         { name: name, cost: cost }  
